@@ -16,6 +16,9 @@ public class string {
         
         // comparison bases on lexicographically and ascii codes
 
+        String urlName="https://www.google.com";
+        System.out.println(urlName.substring(5,12));
+
 
 
 
