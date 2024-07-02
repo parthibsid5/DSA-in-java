@@ -28,10 +28,14 @@ public class problems {
                 break;
             }
             else{
+                try{
                 int num=Integer.parseInt(input);
                 if(num>0){posCount+=1;}
                 else if(num<0){negCount+=1;}
                 else{zeroCount+=1;}
+                }
+                catch(NumberFormatException e){System.out.println("Please enter a vlalid integer");
+            }
             }
         }
         System.out.println("Pos : "+posCount+"\nNeg : "+negCount+"\nZero : "+zeroCount);

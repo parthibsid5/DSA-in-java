@@ -19,6 +19,19 @@ public class string {
         String urlName="https://www.google.com";
         System.out.println(urlName.substring(5,12));
 
+        // String newAppend=urlName.append("/feed");
+        // Thenabove line would give an error since Strings are immutable
+
+        //  till now we have learnt that whenever we alter the string then a new string gets created that is the original string is immutable 
+        //  so we get to know that each times a string is altered a new temporary objects being created 
+        // But 'S T R I N G  B U I L D E R' is a mutuable type of string ...means gets updated, it dosen't create new temporary objects at each modifications..
+
+        StringBuilder sb=new StringBuilder("Avinash");
+        System.out.println(sb);
+        sb.append(" assistant");
+        sb.insert(5, '@');
+        sb.delete(5, 6);
+        System.out.println(sb);
 
 
 
