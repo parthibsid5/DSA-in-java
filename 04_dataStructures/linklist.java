@@ -44,6 +44,35 @@ class linklist {
 
     }
 
+    // delete first
+    public void deleteFirst() {
+        if (head == null) {
+            System.out.println("List is empty!");
+            return;
+        }
+        head = head.next;
+    }
+
+    // delete Last
+    public void deleteLast() {
+        if (head == null) {
+            System.out.println("List is empty!");
+            return;
+        }
+        // If there is only one element in the list
+        if (head.next == null) {
+            head = null;
+            return;
+        }
+        Node secLast = head;
+        Node lastNode = head.next;
+        while (lastNode.next != null) {
+            secLast = lastNode;
+            lastNode = lastNode.next;
+        }
+        secLast.next = null;
+    }
+
     // print
 
     public void printList() {
@@ -62,7 +91,10 @@ class linklist {
         list.addFirst("b");
         list.addFirst("c");
 
-        list .addLast("p");
+        list.addLast("p");
+        list.deleteLast();
+        list .deleteFirst();
+
         list.printList();
 
     }
