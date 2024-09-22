@@ -61,6 +61,8 @@ class linklist {
         list.addFirst("a");
         list.addFirst("b");
         list.addFirst("c");
+
+        list .addLast("p");
         list.printList();
 
     }
