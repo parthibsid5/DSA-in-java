@@ -1,6 +1,11 @@
 class linklist {
 
     Node head;
+    private int size;
+
+    linklist(){
+        this.size=0;
+    }
 
     class Node {
         String data;
@@ -9,6 +14,7 @@ class linklist {
         Node(String data) {
             this.data = data;
             this.next = null;
+            size++;
         }
     }
 
@@ -29,7 +35,6 @@ class linklist {
             System.out.println("List is empty!");
             return;
         }
-
         Node newNode = new Node(data);
         if (head == null) {
             head = newNode;
@@ -50,6 +55,7 @@ class linklist {
             System.out.println("List is empty!");
             return;
         }
+        size--;
         head = head.next;
     }
 
@@ -59,6 +65,7 @@ class linklist {
             System.out.println("List is empty!");
             return;
         }
+        size--;
         // If there is only one element in the list
         if (head.next == null) {
             head = null;
@@ -85,6 +92,10 @@ class linklist {
         System.out.println("null");
     }
 
+    public int getSize(){
+        return size;
+    }
+
     public static void main(String args[]) {
         linklist list = new linklist();
         list.addFirst("a");
@@ -96,6 +107,9 @@ class linklist {
         list .deleteFirst();
 
         list.printList();
+
+        int size=list.getSize();
+        System.out.println("size is : "+size);
 
     }
 }
