@@ -59,15 +59,68 @@ public class LLquestions {
     }
 
 
+    // check if a LL is pallindrome
+    public boolean isPallindrome(Node head){
+        if(head==null || head.next==null){
+            return true;
+        }
+        Node middle=findMiddle(head);
+        
+        Node secHalfSart= reverseHalf(middle.next);
+
+        Node firstHalfStart=head;
+        while(secHalfSart!=null){
+            if(firstHalfStart.data!=secHalfSart.data){
+                return false;
+            }
+            firstHalfStart=firstHalfStart.next;
+            secHalfSart=secHalfSart.next;
+        }
+        return true;
+    }
+
+    public Node findMiddle(Node head){
+        Node hare=head;
+        Node turtle=head;
+        while(hare.next!=null && hare.next.next!=null){
+            hare=hare.next.next;
+            turtle=turtle.next;
+        }
+        return turtle;
+
+    }
+     
+    public Node reverseHalf(Node head){
+        // if(head==null){return }
+        Node prevNode=null;
+        Node currNode=head;
+        while(currNode!=null){
+            // reverse link
+            Node nextNode=currNode.next;
+            // update
+            currNode.next=prevNode;
+            prevNode=currNode;
+            currNode=nextNode;
+        }
+        // head.next=null;
+        // head=prevNode;
+        return prevNode;
+        // prevNode.next=head;
+        
+    }
+
     public static void main(String arrs[]) {
         LLquestions list = new LLquestions();
-        list.addFirst(5);
-        list.addFirst(4);
+        list.addFirst(1);
+        list.addFirst(2);
         list.addFirst(3);
         list.addFirst(2);
-        list.addFirst(1);
+        list.addFirst(3);
 
-        nth_Last(head, 2);
+        // nth_Last(head, 2);
+        LLquestions obj1=new LLquestions();
+        boolean result=obj1.isPallindrome(head);
+        System.out.println(result);
 
     }
 }
