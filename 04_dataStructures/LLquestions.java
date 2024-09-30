@@ -49,6 +49,7 @@ public class LLquestions {
         }
         currNode.next = currNode.next.next;
 
+        // print the new LL
         Node newcurrNode = head;
         while (newcurrNode != null) {
             System.out.print(newcurrNode.data + "-->");
@@ -109,6 +110,23 @@ public class LLquestions {
         
     }
 
+
+
+    // check if a loop exists
+    public boolean isCycle(Node head) {
+        if(head==null){return false;}
+        Node turtle = head;
+        Node hare = head;
+        // System.out.println("true");
+        while (hare.next != null && hare != null) {
+            turtle = turtle.next;
+            hare = hare.next.next; 
+            if (turtle==hare) {
+                return true;
+            }
+        }
+        return false;
+    }
     public static void main(String arrs[]) {
         LLquestions list = new LLquestions();
         list.addFirst(1);
@@ -118,9 +136,11 @@ public class LLquestions {
         list.addFirst(3);
 
         // nth_Last(head, 2);
-        LLquestions obj1=new LLquestions();
-        boolean result=obj1.isPallindrome(head);
-        System.out.println(result);
+        // LLquestions obj1=new LLquestions();
+        // boolean result=obj1.isPallindrome(head);
+        // System.out.println(result);
 
-    }
+        boolean result=list.isCycle(head);
+        System.out.println(result);
+        }
 }
