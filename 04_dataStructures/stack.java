@@ -94,6 +94,18 @@ public class stack {
             System.out.println(a.ALpeek());
             a.ALpop();
     }
+    // java collection framework
+    Stack<Integer> stack=new Stack<>();
+    stack.push(50);
+    stack.push(60);
+    stack.push(70);
+    stack.push(80);
+
+    while(!isEmpty()){
+        // for cp purposes, isEmpty() fn for empty stack 
+        System.out.println(s.peek());
+        stack.pop();
+    }
 
     }
 }
