@@ -50,7 +50,7 @@ public class stack {
             newNode.next=head;
             head=newNode;
         }
-        // LL po
+        // LL pop
         public static int pop(){
             if(isEmptyStack()){
                 System.out.println("Empty stack nothing to pop!");
