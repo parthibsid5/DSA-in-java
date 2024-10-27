@@ -5,6 +5,7 @@
 import java.util.*;
 
 public class Queue {
+    
     static class queueclass {
         static int arr[];
         static int size;
@@ -59,50 +60,6 @@ public class Queue {
             return arr[front];
         }
 
-    }
-
-    public static void main(String args[]) {
-        // queueclass qc = new queueclass(5);
-        // queueclass.addElement(1);
-        // queueclass.addElement(2);
-        // queueclass.addElement(3);
-        // queueclass.addElement(4);
-        // queueclass.addElement(5);
-
-        // System.out.println(queueclass.dequeue());
-        // System.out.println(queueclass.dequeue());
-        // System.out.println(queueclass.dequeue());
-        // System.out.println(queueclass.dequeue());
-        // System.out.println(queueclass.dequeue());
-        // System.out.println(queueclass.peek());
-
-        // circularqueue cq = new circularqueue(5);
-        // cq.add(2);
-        // cq.add(9);
-        // cq.add(3);
-        // cq.add(5);
-        // cq.add(4);
-        // cq.deque();
-        // cq.deque();
-        // cq.add(100);
-        // cq.add(200);
-        // cq.deque();
-        // cq.deque();
-        // cq.deque();
-        // cq.deque();
-        // cq.deque();
-        // cq.peek();
-
-        linklist_queue lq=new linklist_queue();
-        lq.add(5);
-        lq.deque();
-        lq.add(7);
-        lq.add(8);
-        lq.add(2);
-        lq.deque();
-        lq.deque();
-        lq.deque();
-        lq.peek();
     }
 
     static class circularqueue {
@@ -206,4 +163,66 @@ public class Queue {
         }
         System.out.println("top "+front.data);
     }}
+
+
+    public static void main(String args[]) {
+        // queueclass qc = new queueclass(5);
+        // queueclass.addElement(1);
+        // queueclass.addElement(2);
+        // queueclass.addElement(3);
+        // queueclass.addElement(4);
+        // queueclass.addElement(5);
+
+        // System.out.println(queueclass.dequeue());
+        // System.out.println(queueclass.dequeue());
+        // System.out.println(queueclass.dequeue());
+        // System.out.println(queueclass.dequeue());
+        // System.out.println(queueclass.dequeue());
+        // System.out.println(queueclass.peek());
+
+        // circularqueue cq = new circularqueue(5);
+        // cq.add(2);
+        // cq.add(9);
+        // cq.add(3);
+        // cq.add(5);
+        // cq.add(4);
+        // cq.deque();
+        // cq.deque();
+        // cq.add(100);
+        // cq.add(200);
+        // cq.deque();
+        // cq.deque();
+        // cq.deque();
+        // cq.deque();
+        // cq.deque();
+        // cq.peek();
+
+        // linklist_queue lq=new linklist_queue();
+        // lq.add(5);
+        // lq.deque();
+        // lq.add(7);
+        // lq.add(8);
+        // lq.add(2);
+        // lq.deque();
+        // lq.deque();
+        // lq.deque();
+        // lq.peek();
+
+        // Queue - interface, Linkedlist, ArrayDeque - class
+        //
+        // java.util.Queue<Integer> q=new LinkedList<>();
+
+        java.util.Queue<Integer> q=new ArrayDeque<>();
+        
+        q.add(5);
+        q.add(4);
+        q.add(2);
+        q.add(8);
+
+        while(!q.isEmpty()){
+            System.out.println(q.peek());
+            q.remove();
+        }
+    }
+
 }
