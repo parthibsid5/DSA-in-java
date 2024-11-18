@@ -1,12 +1,18 @@
 // find second max in java 
 public class secmax {
     public static void main(String args[]){
-        int arr[]={12,35,1,10,34,1,35};
-        int max=arr[0];
-        int secmax=arr[0];
+        // int arr[]={12,35,1,10,34,1,35};
+        // int arr[]={10,10,10};
+        int arr[] = {10, 20, 20, 10, 10};
+        // int max=arr[0];
+        // int secmax=arr[0];
+        int max=Integer.MIN_VALUE;
+        int secmax=Integer.MIN_VALUE;
+
         // TX=O(n)
         for(int i=0;i<arr.length;i++){
             if(max<arr[i]){
+                secmax=max;
                 max=arr[i];
             }
             if(max>arr[i] && secmax<arr[i]){
