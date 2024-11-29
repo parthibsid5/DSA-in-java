@@ -25,5 +25,26 @@ class rotatearray {
         arr[j]=temp;
      }
      System.out.println(Arrays.toString(arr));
+     
+     rotatearray rt=new rotatearray();
+     int a[]={2,3,6,5,2,5};
+     int g=2,n2=a.length;
+     g=g%n2; //for g>n2
+     rotate(a, 0, g-1);   //rotate o-d
+     rotate(a, g,n2-1);        //rotate d-n
+     rotate(a,0,n2-1);  //rotate o-n
+     
+     System.out.println(Arrays.toString(a));
+    }
+
+    public static void rotate(int arr[], int start, int end){
+        int temp;
+        while(start<end){
+            temp=arr[start];
+            arr[start]=arr[end];
+            arr[end]=temp;
+            start++;
+            end--;
+        }
     }
 }
