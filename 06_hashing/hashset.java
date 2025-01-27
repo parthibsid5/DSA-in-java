@@ -20,6 +20,7 @@ public class hashset {
         set.add(19);
         set.add(12);
         set.add(5);
+        System.out.println(set);
 
         // search -contains : returns boolean
         System.out.println(set.contains(1));

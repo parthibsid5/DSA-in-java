@@ -22,7 +22,7 @@ public class hashmap {
 
         // get value
         System.out.println(map.get("IND"));
-        // null is not present!
+        // null if not present!
         System.out.println(map.get("ID"));
 
         // iterate
