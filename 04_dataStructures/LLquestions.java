@@ -130,17 +130,21 @@ public class LLquestions {
     public static void main(String arrs[]) {
         LLquestions list = new LLquestions();
         list.addFirst(1);
-        list.addFirst(2);
-        list.addFirst(3);
-        list.addFirst(2);
-        list.addFirst(3);
+        // list.addFirst(2);
+        // list.addFirst(3);
+        // list.addFirst(2);
+        // list.addFirst(3);
 
         // nth_Last(head, 2);
         // LLquestions obj1=new LLquestions();
         // boolean result=obj1.isPallindrome(head);
         // System.out.println(result);
 
-        boolean result=list.isCycle(head);
-        System.out.println(result);
+        // boolean result=list.isCycle(head);
+        // System.out.println(result);
+
+        LLquestions obj=new LLquestions();
+        obj.nth_Last(head, 1);
+        System.out.println(obj.head);
         }
 }

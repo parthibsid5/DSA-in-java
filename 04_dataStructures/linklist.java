@@ -31,10 +31,6 @@ class linklist {
 
     // add Last
     public void addLast(String data) {
-        if (head == null) {
-            System.out.println("List is empty!");
-            return;
-        }
         Node newNode = new Node(data);
         if (head == null) {
             head = newNode;
@@ -46,9 +42,9 @@ class linklist {
             currNode = currNode.next;
         }
         currNode.next = newNode;
-
+        
     }
-
+    
     // delete first
     public void deleteFirst() {
         if (head == null) {
@@ -58,7 +54,7 @@ class linklist {
         size--;
         head = head.next;
     }
-
+    
     // delete Last
     public void deleteLast() {
         if (head == null) {
@@ -79,10 +75,14 @@ class linklist {
         }
         secLast.next = null;
     }
-
+    
     // print
-
+    
     public void printList() {
+        if (head == null) {
+            System.out.println("List is empty!");
+            return;
+        }
         Node currNode = head;
         while (currNode != null) {
             System.out.print(currNode.data + "-->");
