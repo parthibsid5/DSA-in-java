@@ -112,6 +112,26 @@ class createGraph {
                 DFS_disjoied(graph, dfs_dis_visit, e.dest);
             }
         }
+        
+    }
+
+
+    // all paths from src to dest
+    // O(v^v), very large time cx, good for smaler graphs  
+    public static void printAllPath(ArrayList<Edge> graph[],boolean arr[],int curr,String path,int target){
+        if(curr==target){
+            System.out.println(path);
+            return;
+        }
+        // path=path+curr;
+        for(int i=0;i<graph[curr].size();i++){
+            Edge e=graph[curr].get(i);
+            if(arr[e.dest]==false){
+                arr[curr]=true;
+                printAllPath(graph, arr, e.dest, path+e.dest, target);
+                arr[curr]=false;
+            }
+        }
 
     }
 
@@ -139,13 +159,20 @@ class createGraph {
             // DFS(graph, dfs_visit, 0);
 
             // dfs disjoined
-            boolean dfs_dis_visit[]=new boolean[v];
-            for(int i=0;i<v;i++){
-                if(dfs_dis_visit[i]==false){
-                    DFS_disjoied(graph, dfs_dis_visit, i);
-                }
-            }
+            // boolean dfs_dis_visit[]=new boolean[v];
+            // for(int i=0;i<v;i++){
+            //     if(dfs_dis_visit[i]==false){
+            //         DFS_disjoied(graph, dfs_dis_visit, i);
+            //     }
+            // }
+
+            boolean arr[]=new boolean[v];
+            String path="0";
+            int target=5,src=0;
+            printAllPath(graph, arr, src, path, target);
 
     }
     
+
+
 }
