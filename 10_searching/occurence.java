@@ -12,6 +12,8 @@ public class occurence {
            System.out.println("{"+lb +" "+ (ub-1)+"}");
        }
     }   
+
+    //  TC=O(log n);
     public static int upperbound(int nums[],int n, int target){
         int l=0,h=n-1,ans=n;
         while(h>=l){
