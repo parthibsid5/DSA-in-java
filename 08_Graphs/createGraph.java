@@ -19,22 +19,22 @@ class createGraph {
             graph[i] = new ArrayList<Edge>();
         }
         // manually adding
-        graph[0].add(new Edge(0, 1, 2));
-        graph[0].add(new Edge(0, 2, 3));
+        // graph[0].add(new Edge(0, 1, 2));
+        // graph[0].add(new Edge(0, 2, 3));
 
-        graph[1].add(new Edge(1, 3, 10));
+        // graph[1].add(new Edge(1, 3, 10));
 
-        graph[2].add(new Edge(2, 4, 2));
+        // graph[2].add(new Edge(2, 4, 2));
 
-        graph[3].add(new Edge(3, 4, 0));
-        graph[3].add(new Edge(3, 5, -1));
+        // graph[3].add(new Edge(3, 4, 0));
+        // graph[3].add(new Edge(3, 5, -1));
 
-        graph[4].add(new Edge(4, 3, -1));
-        graph[4].add(new Edge(4, 5, -1));
+        // graph[4].add(new Edge(4, 3, -1));
+        // graph[4].add(new Edge(4, 5, -1));
 
-        graph[5].add(new Edge(5, 6, -10));
+        // graph[5].add(new Edge(5, 6, -10));
 
-        graph[6].add(new Edge(6, 5, 2));
+        // graph[6].add(new Edge(6, 5, 2));
 
 
         // graph[0].add(new Edge(0, 1, 2));
@@ -48,26 +48,37 @@ class createGraph {
 
         // graph[4].add(new Edge(4, 3, 2));
 
+
+
+        graph[0].add(new Edge(0, 2, 2));
+        graph[1].add(new Edge(1, 0, 2));
+        graph[2].add(new Edge(2, 3, 2));
+        // graph[3].add(new Edge(3, 0, 2));
     }
 
-    public static void BFS(ArrayList<Edge> graph[], int v) {
-        java.util.Queue<Integer> q = new LinkedList<>();
-        boolean visited[] = new boolean[v];
-        for (int i = 0; i < graph.length; i++) {
-            visited[i] = false;
-        }
-        q.add(graph[0].get(0).src);
-        while (!q.isEmpty()) {
-            int curr = q.remove();
-            if (visited[curr] == false) {
-                System.out.println(curr);
-                visited[curr] = true;
-                for (int i = 0; i < graph[curr].size(); i++) {
-                    Edge e = graph[curr].get(i);
-                    q.add(e.dest);
-                }
-            }
-        }
+    // public static void BFS(ArrayList<Edge> graph[], int v) {
+    //     java.util.Queue<Integer> q = new LinkedList<>();
+    //     boolean visited[] = new boolean[v];
+    //     for (int i = 0; i < graph.length; i++) {
+    //         visited[i] = false;
+    //     }
+    //     q.add(graph[0].get(0).src);
+    //     while (!q.isEmpty()) {
+    //         int e.dest =currov
+    //             return true();
+            
+            
+    //         if(visited[e.dest] && parent!=curr){
+    //             return true;
+    //         }    if (visited[curr] == false) {
+    //             System.out.println(curr);
+    //             visited[curr] = true;
+    //             for (int i = 0; i < graph[curr].size(); i++) {
+    //                 Edge e = graph[curr].get(i);
+    //                 q.add(e.dest);
+    //             }
+    //         }
+    //     }
     }
 
     public static void BFS_disjointed(ArrayList<Edge> graph[], boolean visit[], int start) {
@@ -135,6 +146,39 @@ class createGraph {
 
     }
 
+    public static boolean isCycleDirected(ArrayList<Edge> graph[],boolean visited[],boolean recursion[],int curr){
+        visited[curr]=true;
+        recursion[curr]=true;
+        for(int i=0;i<graph[curr].size();i++){
+            Edge e=graph[curr].get(i);
+            if(!visited[e.dest]){
+                if(isCycleDirected(graph, visited,recursion, e.dest)){
+                    return true;
+                }
+            }
+            else if(recursion[e.dest]){
+                 return true;
+             }
+        }
+        recursion[curr]=false;
+        return false;
+    }
+
+
+    public static boolean isCycleUndirected(ArrayList<Edge> graph[],boolean visited[],int curr,int parent){
+        visited[curr]=true;
+        for(Edge e : graph[curr]){
+            if(!visited[e.dest]){
+                if(isCycleUndirected(graph, visited, e.dest, curr)) {
+                    return true;
+                }   
+            }
+            if(visited[e.dest] && parent!=e.dest){
+                return true;
+            }
+        }
+        return false;
+    }
     public static void main(String a[]) {
         int v = 7;
         // int v = 5;
@@ -169,10 +213,13 @@ class createGraph {
             boolean arr[]=new boolean[v];
             String path="0";
             int target=5,src=0;
-            printAllPath(graph, arr, src, path, target);
+            // printAllPath(graph, arr, src, path, target);
 
+            boolean visited[]=new boolean[v];
+            boolean recursion[]=new boolean[v];
+            boolean result=isCycleDirected(graph, visited,recursion,graph[0].get(0).src);
+            System.out.println(result); 
+
+            // cycle undirected check
+            System.out.println(isCycleUndirected(graph, visited,0,-1));
     }
-    
-
-
-}

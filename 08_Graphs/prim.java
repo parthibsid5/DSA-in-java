@@ -67,7 +67,7 @@ public class prim {
                 //         int m=Integer.MAX_VALUE,n=0;   
                         for(int i=0;i<graph[curr.node].size();i++){
                             Edge e=graph[curr.node].get(i);
-                            
+
                             if(!visited[e.dest]) pq.add(new Pair(e.dest,e.wt));
                         }
                 }
