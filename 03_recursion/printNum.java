@@ -13,5 +13,4 @@ public class printNum {
         System.out.println(n);;
         print_Num(n+1);
     }
-    
 }
